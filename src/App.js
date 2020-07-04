@@ -1,12 +1,14 @@
 import React from 'react';
-import './App.css';
+import './App.sass';
+import { MainArea } from './Components/MainArea/MainArea';
 
-function App() {
+
+export function App() {
   return (
-    <div className="App">
-      React Hero App!
-    </div>
+    <React.Fragment>
+      <MainArea />
+    </React.Fragment>
   );
 }
 
-export default App;
+
