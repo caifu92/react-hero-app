@@ -1,4 +1,4 @@
-import { ADD } from "./actionTypes";
+import { ADD, ADD_FOCUS_NAME, ADD_FOCUS_PASS, ADD_LENGTH_CHECK_NAME, ADD_LENGTH_CHECK_PASS } from "./actionTypes";
 
 
 export function add() {
@@ -7,14 +7,27 @@ export function add() {
     }
 } 
 
-export function incrementAsync(value) {
-    return (dispatch) => {
-        const interval = setInterval(() => {
-            if(value > 5) {
-                clearInterval(interval);
-            }
-            
-            dispatch(add());
-        }, 1000);
+export function addFocusName() {
+    return {
+        type: ADD_FOCUS_NAME,
     }
 }
+
+export function addFocusPass() {
+    return {
+        type: ADD_FOCUS_PASS,
+    }
+}
+
+export function addCheckLengthName(){
+    return {
+        type: ADD_LENGTH_CHECK_NAME,
+    }
+}
+
+export function addCheckLengthPass(){
+    return {
+        type: ADD_LENGTH_CHECK_PASS,
+    }
+}
+

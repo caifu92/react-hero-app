@@ -1,1 +1,5 @@
 export const ADD = 'ADD';
+export const ADD_FOCUS_NAME = 'ADD_FOCUS_NAME';
+export const ADD_FOCUS_PASS = 'ADD_FOCUS_PASS';
+export const ADD_LENGTH_CHECK_NAME = 'ADD_LENGTH_CHECK_NAME';
+export const ADD_LENGTH_CHECK_PASS = 'ADD_LENGTH_CHECK_PASS';

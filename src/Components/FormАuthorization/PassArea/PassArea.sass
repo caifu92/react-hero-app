@@ -1,0 +1,28 @@
+.area-pass
+    display: flex
+    flex-direction: column
+    padding: 10px
+
+.area-pass__label
+    font-size: 24px
+    transform: translate(0px, 45px) scale(1) 
+    transform-origin: top left
+
+.area-pass__input
+    background: transparent
+    border: 0
+    outline: none
+    border-bottom: 2px solid #b6b0b0
+    padding: 10px 15px
+    transition: .4s linear
+    color: #dfaf3b
+
+.area-pass__input
+    &:focus
+        border-bottom: 2px solid #dfaf3b
+
+
+.pass-focus
+    transform: translate(0px, 1.5px) scale(0.75) 
+    transition: .2s linear
+    transform-origin: top left

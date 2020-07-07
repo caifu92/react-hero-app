@@ -1,44 +1,47 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, {useState, useEffect} from 'react';
 import './HomeBaner.sass';
-import { add, incrementAsync } from '../../../../../../redux/actions/actions';
+import { HomeBanerUrls } from './HomeBanerUrls';
 
-const HomeBaner = props => {
+const HomeBaner = () => {
 
-    // console.log(props);
+    const [count, setCount] = useState(3);
+    const [countImg, setCountImg] = useState(0);
 
-    // return (
-    //         <div className="home-area__banner">
-    //             <p className="home-area__timer">Banner will change after : </p>
-    //             <img src="" className="home-area__img" alt="banner-foto" />
-    //         </div>
-    // );
+    useEffect(() => {
+        const interval = setInterval(() => {
 
+            count > 1 ? setCount(count - 1) : setCount(3);
+
+        }, 1000);
+
+        return () => {
+            clearInterval(interval);
+        }
+    }, [count]);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+
+            countImg < HomeBanerUrls.length - 1 ? setCountImg(countImg + 1) : setCountImg(0);
+
+        }, 3000);
+
+        return () => {
+            clearInterval(interval);
+        }
+    }, [countImg]);
+
+    
     return (
-        <div>
-            <p>{props.counter}</p>
-            <button onClick={() => props.addNumber(15)}>Click</button>
-            <button onClick={() => props.bannerTimer(props.counter)}>Click</button>
-        </div>
+            <div className="home-area__banner">
+                <p className="home-area__timer">Banner will change after : {count}</p>
+                <img src={HomeBanerUrls[countImg]} className="home-area__img" alt="banner-foto" />
+            </div>
     );
 
+
 }
 
-
-function mapStateToProps(state) {
-    return {
-        counter: state.counter
-    }
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        bannerTimer: value => dispatch(incrementAsync(value)),
-        addNumber: number => dispatch({type: 'ADD_NUMBER', payload: number}),
-    }
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomeBaner);
+export default HomeBaner;
 
 
