@@ -1,50 +1,57 @@
-import { ADD, ADD_FOCUS_NAME, ADD_FOCUS_PASS, ADD_LENGTH_CHECK_NAME, ADD_LENGTH_CHECK_PASS } from "./actions/actionTypes";
+import { ADD, ADD_FOCUS_NAME, ADD_FOCUS_PASS, ADD_VALUE_NAME, ADD_VALUE_PASS, ADD_PASS_INER_HTML } from "./actions/actionTypes";
 
 
 const initialState = {
     isFocusUsername: false,
     isFocusPass: false,
-    isLengthCheckName: false,
-    isLengthCheckPass: false,
+    isValueName: '',
+    isValuePass: '',
+    isPassInerHtml: '',
 }
 
 const rootReducer = (state = initialState, action) => {
 
-    switch(action.type) {
-        case ADD: 
+    switch (action.type) {
+        case ADD:
             return {
                 counter: state.counter + 1
             };
 
         case ADD_FOCUS_NAME:
             return {
-                ...state, 
+                ...state,
                 isFocusUsername: !state.isFocusUsername,
             };
 
-        case ADD_FOCUS_PASS: 
+        case ADD_FOCUS_PASS:
             return {
                 ...state,
                 isFocusPass: !state.isFocusPass,
             }
-            
-        case ADD_LENGTH_CHECK_NAME:
+
+        case ADD_VALUE_NAME:
             return {
                 ...state,
-                isLengthCheckName: !state.isLengthCheckName
+                isValueName: action.payload,
             }
 
-        case ADD_LENGTH_CHECK_PASS:
+        case ADD_VALUE_PASS:
             return {
                 ...state,
-                isLengthCheckPass: !state.isLengthCheckPass
+                isValuePass: action.payload
             }
-        
 
-        default: 
+        case ADD_PASS_INER_HTML: {
+            return {
+                ...state,
+                isPassInerHtml: action.payload, 
+            }
+        }
+
+        default:
             return state;
     }
-    
+
 };
 
 

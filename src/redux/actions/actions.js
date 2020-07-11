@@ -1,4 +1,4 @@
-import { ADD, ADD_FOCUS_NAME, ADD_FOCUS_PASS, ADD_LENGTH_CHECK_NAME, ADD_LENGTH_CHECK_PASS } from "./actionTypes";
+import { ADD, ADD_FOCUS_NAME, ADD_FOCUS_PASS, ADD_VALUE_NAME, ADD_VALUE_PASS, ADD_PASS_INER_HTML } from "./actionTypes";
 
 
 export function add() {
@@ -19,15 +19,24 @@ export function addFocusPass() {
     }
 }
 
-export function addCheckLengthName(){
+export function addValueName(value){
+
     return {
-        type: ADD_LENGTH_CHECK_NAME,
+        type: ADD_VALUE_NAME,
+        payload: value,
     }
 }
 
-export function addCheckLengthPass(){
+export function addValuePass(value){
     return {
-        type: ADD_LENGTH_CHECK_PASS,
+        type: ADD_VALUE_PASS,
+        payload: value,
     }
 }
 
+export function addPassInerHtml(value) {
+    return {
+        type: ADD_PASS_INER_HTML,
+        payload: value,
+    }
+}

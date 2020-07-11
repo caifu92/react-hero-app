@@ -8,8 +8,8 @@ export const ContentArea = () => {
     return (
         <div className="content-area">
             <Switch>
-            <Route exact path="/" component={HomeContent} />
-            <Route path="/dialogs" component={Dialogs} />
+                <Route exact path="/" component={HomeContent} />
+                <Route path="/dialogs" component={Dialogs} />
             </Switch>
         </div>
     );

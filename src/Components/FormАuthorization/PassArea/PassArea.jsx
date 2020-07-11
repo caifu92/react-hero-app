@@ -3,9 +3,10 @@ import './PassArea.sass';
 
 const PassArea = (props) => {
 
-    const { isFocusPass, onFocusPass, onCheckLengthPass } = props.store;
+    const { isFocusPass, onFocusPass, onValuePass, } = props.store;
 
     const classesFocusPass = ['area-pass__label'];
+
 
     if(isFocusPass) {
         classesFocusPass.push('pass-focus');
@@ -24,7 +25,8 @@ const PassArea = (props) => {
                 required
                 onFocus={event => event.target.value ? null : onFocusPass()}
                 onBlur={event => event.target.value ? null : onFocusPass()}
-                onChange={event => event.target.value.length > 0 ? onCheckLengthPass() : !onCheckLengthPass()}
+                onChange={event => event.target.value.length >= 0 ? onValuePass(event.target.value) : null }
+                
             />
         </div>
     );

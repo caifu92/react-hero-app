@@ -11,17 +11,6 @@ import reduxThunk from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './redux/rootReducer';
 
-
-// const loggerMiddleware = store => next => action => {
-//   const result = next(action);
-
-//   console.log('will dispatch', action)
-//   console.log('Middleware', store.getState());
-
-//   return result;
-// };
-
-
 const store = createStore(rootReducer, applyMiddleware(reduxThunk));
 
 const app = (
